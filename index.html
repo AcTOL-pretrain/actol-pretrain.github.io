@@ -355,9 +355,9 @@
     <div class="container">
       <h2 class="title is-3 has-text-centered">Real robot demos</h2>
 
-      <div class="columns is-multiline" style="position: relative;">
+      <div class="columns is-multiline">
         <!-- Pick up cup -->
-        <div class="column is-one-quarter has-text-centered">
+        <div class="column is-one-quarter has-text-centered" style="position: relative;">
           <h3 class="title is-6">Pick up cup</h3>
           <img class="video-thumb" src="static/images/pick_cup.jpg" 
                 data-video="static/videos/pick_cup_h264.mp4"
@@ -392,7 +392,6 @@
           <h3 class="title is-6">Open 2nd drawer</h3>
           <img class="video-thumb" src="static/images/open_drawer_3.jpg"
                  style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
-            <source src="static/videos/open_drawer_3.mp4" type="video/mp4">
           <div class="play-icon" style="
               position: absolute;
               top: 50%;
@@ -423,15 +422,20 @@
           <h3 class="title is-6">Close 1st drawer</h3>
           <img class="video-thumb" src="static/images/close_drawer_3.jpg"
                  style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
-            <source src="static/videos/close_drawer_3.mp4" type="video/mp4">
-          </video>
+            <div class="play-icon" style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 48px;
+              color: rgba(255,255,255,0.8);
+              pointer-events: none;">▶</div>
         </div>
 
         <div class="column is-one-quarter has-text-centered" style="position: relative;">
           <h3 class="title is-6">Close 2nd drawer</h3>
           <img class="video-thumb" src="static/images/close_drawer_2.jpg"
                  style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
-            <source src="static/videos/close_drawer_2.mp4" type="video/mp4">
           <div class="play-icon" style="
               position: absolute;
               top: 50%;
@@ -446,7 +450,6 @@
           <h3 class="title is-6">Close 3rd drawer</h3>
           <img class="video-thumb" src="static/images/close_drawer_4.jpg"
                  style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
-            <source src="static/videos/close_drawer_4.mp4" type="video/mp4">
           <div class="play-icon" style="
               position: absolute;
               top: 50%;
@@ -461,7 +464,6 @@
           <h3 class="title is-6">Close 4th drawer</h3>
           <img class="video-thumb" src="static/images/close_drawer_1.jpg"
                  style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
-            <source src="static/videos/close_drawer_1.mp4" type="video/mp4">
           <div class="play-icon" style="
               position: absolute;
               top: 50%;
