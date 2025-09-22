@@ -355,65 +355,124 @@
     <div class="container">
       <h2 class="title is-3">Video Gallery</h2>
 
-      <!-- Pick up cup -->
-      <h3 class="title is-4">Pick up cup</h3>
       <div class="columns is-multiline">
-        <div class="column is-one-quarter">
-          <video controls muted loop preload="metadata" style="width: 100%; border-radius: 8px;">
+        <!-- Pick up cup -->
+        <div class="column is-one-quarter has-text-centered">
+          <h3 class="title is-6">Pick up cup</h3>
+          <video class="video-thumb" data-video="static/videos/pick_cup.mp4"
+                 muted loop preload="metadata"
+                 style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
             <source src="static/videos/pick_cup.mp4" type="video/mp4">
           </video>
         </div>
-      </div>
 
-      <!-- Open drawer -->
-      <h3 class="title is-4">Open drawer</h3>
-      <div class="columns is-multiline">
-        <div class="column is-one-quarter">
-          <video controls muted loop preload="metadata" style="width: 100%; border-radius: 8px;">
+        <!-- Open drawer -->
+        <div class="column is-one-quarter has-text-centered">
+          <h3 class="title is-6">Open drawer 1</h3>
+          <video class="video-thumb" data-video="static/videos/open_drawer_1.mp4"
+                 muted loop preload="metadata"
+                 style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
             <source src="static/videos/open_drawer_1.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="column is-one-quarter">
-          <video controls muted loop preload="metadata" style="width: 100%; border-radius: 8px;">
+
+        <div class="column is-one-quarter has-text-centered">
+          <h3 class="title is-6">Open drawer 2</h3>
+          <video class="video-thumb" data-video="static/videos/open_drawer_2.mp4"
+                 muted loop preload="metadata"
+                 style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
             <source src="static/videos/open_drawer_2.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="column is-one-quarter">
-          <video controls muted loop preload="metadata" style="width: 100%; border-radius: 8px;">
+
+        <div class="column is-one-quarter has-text-centered">
+          <h3 class="title is-6">Open drawer 3</h3>
+          <video class="video-thumb" data-video="static/videos/open_drawer_3.mp4"
+                 muted loop preload="metadata"
+                 style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
             <source src="static/videos/open_drawer_3.mp4" type="video/mp4">
           </video>
         </div>
-      </div>
 
-      <!-- Close drawer -->
-      <h3 class="title is-4">Close drawer</h3>
-      <div class="columns is-multiline">
-        <div class="column is-one-quarter">
-          <video controls muted loop preload="metadata" style="width: 100%; border-radius: 8px;">
+        <!-- Close drawer -->
+        <div class="column is-one-quarter has-text-centered">
+          <h3 class="title is-6">Close drawer 1</h3>
+          <video class="video-thumb" data-video="static/videos/close_drawer_1.mp4"
+                 muted loop preload="metadata"
+                 style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
             <source src="static/videos/close_drawer_1.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="column is-one-quarter">
-          <video controls muted loop preload="metadata" style="width: 100%; border-radius: 8px;">
+
+        <div class="column is-one-quarter has-text-centered">
+          <h3 class="title is-6">Close drawer 2</h3>
+          <video class="video-thumb" data-video="static/videos/close_drawer_2.mp4"
+                 muted loop preload="metadata"
+                 style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
             <source src="static/videos/close_drawer_2.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="column is-one-quarter">
-          <video controls muted loop preload="metadata" style="width: 100%; border-radius: 8px;">
+
+        <div class="column is-one-quarter has-text-centered">
+          <h3 class="title is-6">Close drawer 3</h3>
+          <video class="video-thumb" data-video="static/videos/close_drawer_3.mp4"
+                 muted loop preload="metadata"
+                 style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
             <source src="static/videos/close_drawer_3.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="column is-one-quarter">
-          <video controls muted loop preload="metadata" style="width: 100%; border-radius: 8px;">
+
+        <div class="column is-one-quarter has-text-centered">
+          <h3 class="title is-6">Close drawer 4</h3>
+          <video class="video-thumb" data-video="static/videos/close_drawer_4.mp4"
+                 muted loop preload="metadata"
+                 style="width: 100%; border-radius: 8px; height: 200px; object-fit: cover; cursor: pointer;">
             <source src="static/videos/close_drawer_4.mp4" type="video/mp4">
           </video>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-<!-- End video carousel -->
+
+<!-- Modal for enlarged video -->
+<div class="modal" id="videoModal">
+  <div class="modal-background"></div>
+  <div class="modal-content has-text-centered">
+    <video id="modalVideo" controls autoplay style="max-width: 90%; max-height: 80%; border-radius: 8px;">
+      <source src="" type="video/mp4">
+    </video>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("videoModal");
+    const modalVideo = document.getElementById("modalVideo");
+    const modalClose = modal.querySelector(".modal-close");
+    const modalBg = modal.querySelector(".modal-background");
+
+    // 点击缩略视频 -> 打开modal并播放
+    document.querySelectorAll(".video-thumb").forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        const videoSrc = thumb.getAttribute("data-video");
+        modalVideo.querySelector("source").src = videoSrc;
+        modalVideo.load();
+        modal.classList.add("is-active");
+        modalVideo.play();
+      });
+    });
+
+    // 关闭modal
+    [modalClose, modalBg].forEach(el => {
+      el.addEventListener("click", () => {
+        modal.classList.remove("is-active");
+        modalVideo.pause();
+      });
+    });
+  });
+</script>
 
 
 
